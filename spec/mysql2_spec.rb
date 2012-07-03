@@ -13,7 +13,7 @@ describe ActiveRecord::ConnectionAdapters::Mysql2Adapter do
   it_should_behave_like 'a modified mysql adapter' do
     let(:establish){ mysql2_connection }
     let(:column) do
-      ActiveRecord::ConnectionAdapters::Mysql2Column
+      ActiveRecord::ConnectionAdapters::Mysql2Adapter::Column
     end
     let(:spatial_column) do
       ActiveRecord::ConnectionAdapters::SpatialMysql2Column

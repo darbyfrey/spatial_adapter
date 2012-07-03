@@ -11,7 +11,7 @@ handle spatial datatypes in the following databases:
 The following gems are required:
 
 - GeoRuby
-- ActiveRecord (version 2.2.2 and up)
+- ActiveRecord (version 3.2.0 and up)
 
 For PostgreSQL:
 

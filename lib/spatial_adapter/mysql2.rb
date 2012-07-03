@@ -3,7 +3,7 @@ require 'spatial_adapter/base/mysql'
 require 'active_record/connection_adapters/mysql2_adapter'
 
 module ActiveRecord::ConnectionAdapters
-  class SpatialMysql2Column < Mysql2Column
+  class SpatialMysql2Column < Mysql2Adapter::Column
     include SpatialAdapter::SpatialColumn
     extend SpatialAdapter::Base::Mysql::SpatialColumn
   end
@@ -18,7 +18,7 @@ module ActiveRecord::ConnectionAdapters
           if field[1] =~ GEOMETRY_REGEXP
             ActiveRecord::ConnectionAdapters::SpatialMysql2Column
           else
-            ActiveRecord::ConnectionAdapters::Mysql2Column
+            ActiveRecord::ConnectionAdapters::Mysql2Adapter::Column
           end
         klass.new(field[0], field[4], field[1], field[2] == "YES")
       end
