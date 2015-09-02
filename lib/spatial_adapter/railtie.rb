@@ -1,7 +1,8 @@
 module SpatialAdapter
   class Railtie < Rails::Railtie
     initializer "spatial_adapter.load_current_database_adapter" do
-      adapter = ActiveRecord::Base.configurations[Rails.env]['adapter']
+      adapter = 'mysql2'
+
       begin
         require "spatial_adapter/#{adapter}"
       rescue LoadError
