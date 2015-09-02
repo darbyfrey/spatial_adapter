@@ -1,11 +1,7 @@
 module SpatialAdapter
   class Railtie < Rails::Railtie
     initializer "spatial_adapter.load_current_database_adapter" do
-      if ActiveRecord::Base.configurations.nil?
-        adapter = 'mysql2'
-      else
-        adapter = ActiveRecord::Base.configurations[Rails.env]['adapter']
-      end
+      adapter = 'mysql2'
 
       begin
         require "spatial_adapter/#{adapter}"
